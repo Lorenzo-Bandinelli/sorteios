@@ -1,0 +1,2 @@
+# sorteios
+Gerenciador de Sorteios.
