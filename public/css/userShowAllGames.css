@@ -1,0 +1,60 @@
+/* faz com que a div main fique centralizada e cada subdiv exibida em linhas (uma embaixo da outra) */
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* utilizei recursos como minmax e max para melhorar a visualização em telas com uma largura menor */
+.sorteio{
+    margin: 10px 0px;
+    min-width: 50%;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr minmax(80px, 0.01fr);
+    grid-auto-rows: 1fr;
+    /* estiliza todos os children elements menos a div buttons, assim o design fica como desejado */
+    > :not(.buttons, .todosJogos) {
+        margin-left: max(2px, 5%);
+    }
+    
+}
+
+/* posiciona os griditems no layout correto */
+.nome{
+    grid-column: 1/1;
+}
+
+.dataPrev{
+    grid-row: 2/2;
+}
+
+.criadoEm{
+    grid-row: 3/3;
+}
+
+.buttons{
+    grid-row: 1/1;
+    grid-column: 2/2;
+    place-self: center;
+}
+
+.todosJogos{
+    grid-column: 1/-1;
+    height: 60%;
+    width: 90%;
+    place-self: center;
+    border: none;
+    background-color: lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.todosJogos:hover{
+    color: black;
+}

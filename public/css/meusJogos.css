@@ -1,0 +1,22 @@
+/* faz com que a div main fique centralizada e cada subdiv exibida em linhas (uma embaixo da outra) */
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20vh;
+}
+
+/* utilizei recursos como minmax e max para melhorar a visualização em telas com uma largura menor */
+.jogo{
+    margin: 10px 0px;
+    min-width: 40%;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    /* estiliza todos os children elements menos a div buttons, assim o design fica como desejado */
+    > :not(.buttons, .todosJogos) {
+        margin-left: max(2px, 5%);
+    }
+    
+}

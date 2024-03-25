@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/jogosPassados.css">
+</head>
+<body>
+    <form method="get">
+        <input type="text" maxlength="14" onkeypress="mascara(this, mascararCPF)" name="cpf" placeholder="insira seu cpf aqui">
+        <input type="submit">
+    </form>
+    
+    <div class="main" cpf="{{cpf}}">
+    {{#if algumJogoEncontrado}} 
+        <h3>Parabéns!! vocês ganhou no seguinte(s) sorteio(s)</h3>
+    {{/if}}
+    {{#each sorteiosGanhos}}
+    <div class="jogosGanhos" id="{{this._id}}">
+        <p class="nomeSorteio">
+            <span class="chaves">Nome do Sorteio: </span><span class="valores">{{this.nomeJogo}}</span>
+        </p>
+        <p class="numerosSorteados">
+            <span class="chaves">Numeros Sorteados: </span><span class="valores">{{this.numerosSorteados}}</span>
+        </p>
+        <p class="jogoGanhador">
+            <span class="chaves">Jogo Vencedor: </span><span class="valores">{{this.jogoGanhador}}</span>
+        </p> 
+        <p class="idDesteJogo">
+            <span class="chaves">Id deste Jogo: </span><span class="valores">{{this._id}}</span>
+        </p> 
+        <div class="rodadas">
+            <br>
+            <h3>rodadas</h3>
+            {{#each this.logRodadas}}
+                <p class="rodada">
+                    <span class="chaves"> {{@key}}: </span><span class="valores" > {{this}} </span>
+                </p>
+            {{/each}}
+        </div>
+
+        {{#if this.jaFoiRetirado}}
+            <h4>Este Sorteio Já foi Retirado</h4>
+        {{else}}
+            <button class="reivindicarPremio">Quero Reivindicar meu Premio!</button>
+        {{/if}}
+        
+    </div>
+    {{/each}}
+
+    {{#if nenhumJogoEncontrado}}
+        <h2>NÃO EXISTEM GANHADORES COM ESTE CPF</h2>
+        <h3>Não Desista! você pode jogar novamente <a href="/user/fazerAposta">nesta página!</a> </h3>
+        <p>Se você tinha um jogo ativo e não o encontrou aqui, você não ganhou no sorteio</p>
+    {{/if}}
+    </div>
+    
+    <script src="/scripts/jogosPassados.js"></script>
+</body>
+</html>

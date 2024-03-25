@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/adminCriarJogos.css">
+</head>
+<body>
+    <div class="main">
+
+        {{#each todosSorteios}}
+            <div class="sorteio" id="{{_id}}">
+                <p class="nome">
+                    <span class="chaves">Nome do Sorteio: </span><span class="valores" objectKey ="{{getKey nome}}">{{nome}}</span>
+                </p>
+                <p class="dataPrev">
+                    <span class="chaves">Data Prevista Do Sorteio: </span> <span class="valores" objectKey ="{{getKey dataPrevistaSorteio}}">{{dataPrevistaSorteio}}</span>
+                </p>
+                <p class="criadoEm">
+                    <span class="chaves">Criado Em: </span> <span class="valores" objectKey ="{{getKey createdAt}}">{{createdAt}}</span>
+                </p>
+    
+                <div class="buttons">
+                    <button class="editButton">Edit</button>
+                    <button class="removeButton">X</button>
+                </div>
+                
+                <div class="launchSeeButtons">
+                    <a class="todosJogos" href="/admin/showGames/{{_id}}">
+                        Ver Jogos Deste Sorteio
+                    </a>
+                    <a class="launchGame" href="/admin/showGames/launchGame/{{_id}}">
+                        Realizar Sorteio
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
+    
+<script src="/bundle.js"></script>
+<script src="/scripts/mostrarJogos.js" globalVariables={{globalVariables}} id="thisScript"></script>
+</body>
+</html>

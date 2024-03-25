@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/sorteioFinalizado.css">
+</head>
+<body>
+    <div class="jogoFinalizado">
+        {{#if sorteioFeito.temGanhador}}
+            {{#each sorteioFeito.ganhadores}}
+                <h2 class="nome">
+                    <span class="chaves"> GANHADOR!!: </span><span class="valores" > {{nome}} </span>
+                </h2>
+                <p class="nome">
+                    <span class="chaves"> cpf: </span><span class="valores" > {{cpf}} </span>
+                </p>
+                <p class="nome">
+                    <span class="chaves"> Números Apostado: </span><span class="valores" > {{listaApostas}} </span>
+                </p>
+            {{/each}}
+
+        {{else}}
+            <h2 class="info">
+                <span class="valores">Não Houveram Ganhadores</span>
+            </h2>
+        {{/if}}
+
+        <p class="nome">
+            <span class="chaves"> Números Sorteados: </span><span class="valores" > {{sorteioFeito.numerosSorteados}} </span>
+        </p>
+        <div class="rodadas">
+            <br>
+            <h3>RODADAS: </h3>
+            {{#each sorteioFeito.logRodadas}}
+                <p class="rodada">
+                    <span class="chaves"> {{@key}}: </span><span class="valores" > {{this}} </span>
+                </p>
+            {{/each}}
+        </div>
+        <div class="jogosFeitos">
+            <h3>Jogos Feitos Neste Sorteio</h3>
+            {{#each sorteioFeito.listaJogadores}}
+                <p class="jogoFeito">
+                    <span class="chaves"> nome: </span><span class="valores" > {{this.nome}} </span>
+                </p>
+                <p class="jogoFeito">
+                    <span class="chaves"> Jogo: </span><span class="valores" > {{this.listaApostas}} </span>
+                </p>
+                <p class="jogoFeito">
+                    <span class="chaves"> cpf: </span><span class="valores" > {{this.cpf}} </span>
+                </p>
+                <hr>
+            {{/each}}
+
+        </div>
+        
+
+    </div>
+</body>
+</html>

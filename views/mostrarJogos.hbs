@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/mostrarJogos.css">
+</head>
+<body>
+    <div class="main">
+        {{#each jogosDesteSorteio}}
+            <div class="jogo">
+                <p class="nome">
+                    <span class="chaves">Jogador: </span><span class="valores">{{this.nome}}</span>
+                </p>
+                <p class="cpf">
+                    <span class="chaves">CPF: </span> <span class="valores">{{this.cpf}}</span>
+                </p>
+                <p class="jogoJogado">
+                    <span class="chaves">Jogo: </span> <span class="valores">{{this.jogo}}</span>
+                </p>
+            </div>
+        {{/each}}
+    </div>
+
+</body>
+</html>

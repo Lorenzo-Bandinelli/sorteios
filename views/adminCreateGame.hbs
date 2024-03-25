@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/adminCreateGame.css">
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="nome">Insira Aqui o Nome Do Sorteio</label>
+        <input type="text" placeholder="nome" name="nome">
+        <label for="dataPrevistaSorteio">insira a data Prevista de realização do sorteio</label>
+        <input type="date" name="dataPrevistaSorteio">
+        <input type="submit" id="">
+    </form>
+
+    {{!-- adicionando validação de dados pro formulario desta pagina, as globalvariables são colocadas aqui para usa-lás na validação no clientside --}}
+    <script src="/bundle.js"></script>
+    <script type="text/javascript" globalVariables={{globalVariables}} src="/scripts/criarSorteio.js" id="thisScript"></script>
+</body>
+</html>

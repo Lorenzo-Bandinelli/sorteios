@@ -1,0 +1,32 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sorteiosFinalizados{
+    margin: 10px 0px;
+    min-width: 50%;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    align-items: center;
+}
+
+.ganhadores, .todosOsJogos, .dadosJogos, .rodadas{
+    margin: 10px 0px;
+    width: 40%;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    overflow: auto;
+    align-items: center;
+}
+
+hr{
+    width: 90%;
+}

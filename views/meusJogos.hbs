@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/meusJogos.css">
+</head>
+<body>
+    <div class="main">
+        <form method="get">
+            <input type="text" maxlength="14" onkeypress="mascara(this, mascararCPF)" name="cpf" placeholder="insira seu cpf aqui">
+            <input type="submit">
+        </form>
+        {{#if params}}
+        <h3>Se havia algum Jogo que você fez e não está mais aqui <a href="/user/jogosPassados">Confira Se Você Não Foi Um Ganhador</a></h3>
+            {{#each params}}
+                <div class="jogo">
+                    <p class="nome">
+                        <span class="chaves">Nome: </span><span class="valores">{{nome}}</span>
+                    </p>
+                    <p class="cpf">
+                        <span class="chaves">Cpf: </span><span class="valores">{{cpf}}</span>
+                    </p>
+                    <p class="jogoValores">
+                        <span class="chaves">Jogo: </span><span class="valores">{{jogo}}</span>
+                    </p>
+                    <p class="nomeSorteio">
+                            <span class="chaves">Nome do Sorteio: </span><span class="valores">{{sorteioDesteJogo.nome}}</span>
+                    </p>
+                    <p class="dataSorteio">
+                        <span class="chaves">Data Prevista Sorteio: </span><span class="valores">{{sorteioDesteJogo.dataPrevistaSorteio}}</span>
+                    </p>
+                </div>
+            {{/each}}
+        {{/if}}
+
+        {{#if nenhumJogoEncontrado}}
+            <br>
+            <h2>NÃO EXISTEM ATIVOS JOGOS DESTE CPF</h2>
+            <h3>Verifique se você não foi um ganhador <a href="/user/jogosPassados">nesta página!</a> </h3>
+            <p>Se você não o encontrou ali, o seu jogo não foi sorteado</p>
+        {{/if}}
+    </div>
+    <script src="/scripts/meusJogos.js"></script>
+</body>
+</html>

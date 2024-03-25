@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/fazerJogo.css">
+</head>
+<body>
+    
+        <form action="#" method="post" sorteioID="{{sorteioID}}">
+        <input type="text" class="nome" maxlength="30" placeholder="insira seu nome aqui" name="nome">
+        <input type="text" class="jogo" maxlength="14" onkeypress="mascara(this, mascararJogo)" name="jogoFeito" placeholder="faça seu jogo aqui">
+        <button type="button" class="buttonNumerosAleatorios">Aposta surpresinha</button>
+        <input type="text" class="cpf" maxlength="14" onkeypress="mascara(this, mascararCPF)" name="cpf" placeholder="insira seu cpf aqui">
+        <input type="hidden" name="sorteioId" value="{{sorteioID}}">
+        <input type="submit" id="submitButton">
+    </form>
+
+    <script src="/bundle.js"></script>
+    <script src="/scripts/fazerJogo.js" id="thisScript" globalVariables="{{globalVariables}}"></script>
+</body>
+</html>

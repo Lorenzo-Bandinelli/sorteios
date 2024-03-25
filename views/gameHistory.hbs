@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/gameHistory.css">
+</head>
+<body>
+        
+    <div class="main">
+    {{#each sorteiosFinalizados}}
+    <div class="sorteiosFinalizados">
+        <p class="nomeSorteio">
+            <span class="chaves">Nome do Sorteio: </span><span class="valores">{{this.nomeJogo}}</span>
+        </p>
+        <p class="numerosSorteados">
+            <span class="chaves">Numeros Sorteados: </span><span class="valores">{{this.numerosSorteados}}</span>
+        </p>
+        <p class="idDesteJogo">
+            <span class="chaves">Id deste Jogo: </span><span class="valores">{{this._id}}</span>
+        </p> 
+
+        <div class="ganhadores">
+            {{#if this.temGanhador}}
+            <h4>número de ganhadores: ({{this.listaDeGanhadores.length}})</h4>
+            <h3>Ganhadores em ordem alfabetica: </h3>
+                {{#each this.listaDeGanhadores}}
+                    <p class="nomeJogador">
+                        <span class="chaves"> nome: </span><span class="valores" > {{this.nome}} </span>
+                    </p>
+                    <p class="jogoGanhador">
+                        <span class="chaves"> jogo: </span><span class="valores" > {{this.listaApostas}} </span>
+                    </p>
+                    <p class="idDoJogo">
+                        <span class="chaves"> Id do Jogo: </span><span class="valores" > {{this.id}} </span>
+                    </p>
+                    <p class="idDoSorteio">
+                        <span class="chaves"> Id do Sorteio: </span><span class="valores" > {{this.idSorteio}} </span>
+                    </p>
+                    <p class="cpf">
+                        <span class="chaves"> CPF: </span><span class="valores" > {{this.cpf}} </span>
+                    </p>
+                    <hr>
+                {{/each}}
+            {{else}}
+                <h3>Este Sorteio Não Teve Ganhadores</h3>
+            {{/if}}
+        </div>
+        <div class="todosOsJogos">
+            <h3>Todos Os Jogos Inscritos Neste Sorteio</h3>
+            {{#each this.todosOsJogos}}
+                <p class="jogoFeito">
+                    <span class="chaves"> jogo: </span><span class="valores" > {{this}} </span>
+                </p>
+            {{/each}}
+        </div>
+
+        <div class="dadosJogos">
+            <br>
+            <h3>Números Apostados Organizados do Mais Comum ao Menos Comum</h3>
+            {{#each this.dadosJogos}}
+                <p class="valor">
+                    <span class="chaves"> Número: </span><span class="valores" > {{this.valor}} </span> 
+                    <span class="chaves">Quantidade </span><span class="valores">{{this.quantidade}}</span>
+                </p>
+            {{/each}}
+        </div>
+        <div class="rodadas">
+            <br>
+            <h3>rodadas</h3>
+            {{#each this.logRodadas}}
+                <p class="rodada">
+                    <span class="chaves"> {{@key}}: </span><span class="valores" > {{this}} </span>
+                </p>
+            {{/each}}
+        </div>
+
+    </div>
+    {{/each}}
+</body>
+</html>
+    

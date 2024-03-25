@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/userShowAllGames.css">
+</head>
+<body>
+    <div class="main">
+
+        {{#each todosSorteios}}
+            <div class="sorteio" id="{{_id}}">
+                <p class="nome">
+                    <span class="chaves">Nome do Sorteio: </span><span class="valores" objectKey ="{{getKey nome}}">{{nome}}</span>
+                </p>
+                <p class="dataPrev">
+                    <span class="chaves">Data Prevista Do Sorteio: </span> <span class="valores" objectKey ="{{getKey dataPrevistaSorteio}}">{{dataPrevistaSorteio}}</span>
+                </p>
+                <p class="criadoEm">
+                    <span class="chaves">Criado Em: </span> <span class="valores" objectKey ="{{getKey createdAt}}">{{createdAt}}</span>
+                </p>
+                <a class="todosJogos" href="/user/fazerAposta/{{_id}}">
+                Jogar Neste Sorteio
+                </a>
+
+            </div>
+        {{/each}}
+
+    </div>
+    
+<script src="/bundle.js"></script>
+<script globalVariables={{globalVariables}} src="/scripts/userShowAllGames.js" id="thisScript"></script>
+</body>
+</html>
